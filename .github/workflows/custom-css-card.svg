@@ -1,87 +1,153 @@
-<svg fill="none" viewBox="0 0 850 190" width="850" height="190" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 880 185" width="880" height="185" xmlns="http://www.w3.org/2000/svg">
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
-        .card {
-          font-family: 'Segoe UI', Ubuntu, Sans-Serif;
-          background: linear-gradient(135deg, #16161e 0%, #1a1b27 50%, #1f2335 100%);
-          border: 1px solid rgba(112, 165, 253, 0.3);
-          border-radius: 16px;
-          padding: 22px 30px;
-          color: #c0caf5;
+        * {
           box-sizing: border-box;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+          margin: 0;
+          padding: 0;
+        }
+        .bento {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+          display: grid;
+          grid-template-columns: 1.1fr 1fr 1fr;
+          gap: 14px;
+          padding: 4px;
+          height: 180px;
+          color: #c0caf5;
+        }
+        .card {
+          background: linear-gradient(160deg, #16161e 0%, #1a1b26 100%);
+          border: 1px solid rgba(122, 162, 247, 0.18);
+          border-radius: 14px;
+          padding: 18px 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
           position: relative;
           overflow: hidden;
         }
-        .glow-bar {
+        .card::before {
+          content: "";
           position: absolute;
           top: 0;
           left: 0;
-          height: 4px;
-          width: 100%;
-          background: linear-gradient(90deg, #70a5fd, #bf91f3, #38bdae, #70a5fd);
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #7aa2f7, #bb9af7, #38bdae, #7aa2f7);
           background-size: 200% 100%;
-          animation: moveGradient 4s linear infinite;
+          animation: flow 5s linear infinite;
         }
-        @keyframes moveGradient {
+        @keyframes flow {
           0% { background-position: 0% 50%; }
           100% { background-position: 200% 50%; }
         }
-        .title {
-          font-size: 20px;
+        .label {
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 1.4px;
+          color: #565f89;
           font-weight: 700;
-          color: #7dcfff;
-          margin-bottom: 12px;
           display: flex;
           align-items: center;
-          gap: 10px;
+          justify-content: space-between;
         }
-        .pulse {
-          width: 10px;
-          height: 10px;
-          background-color: #9ece6a;
+        .status-dot {
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
-          display: inline-block;
-          box-shadow: 0 0 8px #9ece6a;
-          animation: pulseAnim 2s infinite;
+          background: #9ece6a;
+          box-shadow: 0 0 10px #9ece6a;
+          animation: pulse 2s infinite;
         }
-        @keyframes pulseAnim {
-          0% { transform: scale(0.95); opacity: 0.7; }
-          50% { transform: scale(1.2); opacity: 1; }
-          100% { transform: scale(0.95); opacity: 0.7; }
+        @keyframes pulse {
+          0%, 100% { opacity: 0.5; transform: scale(0.9); }
+          50% { opacity: 1; transform: scale(1.15); }
         }
-        .grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 10px;
-          font-size: 14.5px;
-          line-height: 1.6;
+        .main-title {
+          font-size: 22px;
+          font-weight: 700;
+          color: #ffffff;
+          letter-spacing: -0.3px;
+          margin-top: 4px;
         }
-        .highlight {
-          color: #bb9af7;
-          font-weight: 600;
-        }
-        .code {
-          background: rgba(112, 165, 253, 0.12);
-          color: #70a5fd;
-          padding: 2px 7px;
-          border-radius: 6px;
-          font-family: monospace;
+        .sub {
           font-size: 13px;
+          color: #a9b1d6;
+          line-height: 1.45;
+        }
+        .pills {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-top: 6px;
+        }
+        .pill {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 11.5px;
+          padding: 4px 9px;
+          border-radius: 6px;
+          background: rgba(122, 162, 247, 0.1);
+          border: 1px solid rgba(122, 162, 247, 0.2);
+          color: #7dcfff;
+        }
+        .pill.purple {
+          background: rgba(187, 154, 247, 0.1);
+          border-color: rgba(187, 154, 247, 0.2);
+          color: #bb9af7;
+        }
+        .pill.teal {
+          background: rgba(56, 189, 174, 0.1);
+          border-color: rgba(56, 189, 174, 0.2);
+          color: #73daca;
+        }
+        .footer-note {
+          font-size: 11.5px;
+          color: #7aa2f7;
+          font-family: monospace;
         }
       </style>
-      <div class="card">
-        <div class="glow-bar"></div>
-        <div class="title">
-          <span class="pulse"></span>
-          <span>Nevar334 // System &amp; Data Profile</span>
+
+      <div class="bento">
+        <div class="card">
+          <div class="label">
+            <span>Profile</span>
+            <span class="status-dot"></span>
+          </div>
+          <div>
+            <div class="main-title">Nevar344</div>
+            <div class="sub">Software Engineering &amp; Data Analysis</div>
+          </div>
+          <div class="footer-note">● Learning Machine Learning</div>
         </div>
-        <div class="grid">
-          <div>🐍 <b>Основной фокус:</b> разработка на <span class="code">Python</span> и работа с данными в <span class="code">PostgreSQL</span></div>
-          <div>📊 <b>Data &amp; ML стек:</b> анализ и визуализация через <span class="code">NumPy</span>, <span class="code">Pandas</span>, <span class="code">Matplotlib</span></div>
-          <div>🐳 <b>Инфраструктура:</b> контейнеризация в <span class="code">Docker</span> и контроль версий <span class="code">Git</span></div>
-          <div>🎯 <b>Текущая цель:</b> углублённое изучение <span class="highlight">Machine Learning</span> и архитектуры БД</div>
+
+        <div class="card">
+          <div class="label">
+            <span>Backend &amp; Infra</span>
+            <span>01</span>
+          </div>
+          <div class="pills">
+            <span class="pill">Python</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">SQL</span>
+            <span class="pill teal">Docker</span>
+            <span class="pill teal">Git</span>
+            <span class="pill teal">Linux</span>
+          </div>
+          <div class="footer-note">Containerized workflows</div>
+        </div>
+
+        <div class="card">
+          <div class="label">
+            <span>Data &amp; ML</span>
+            <span>02</span>
+          </div>
+          <div class="pills">
+            <span class="pill purple">NumPy</span>
+            <span class="pill purple">Pandas</span>
+            <span class="pill purple">Matplotlib</span>
+          </div>
+          <div class="footer-note">Data processing &amp; plots</div>
         </div>
       </div>
     </div>
