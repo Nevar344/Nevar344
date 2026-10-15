@@ -1,143 +1,153 @@
-<svg fill="none" viewBox="0 0 860 230" width="860" height="230" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 880 185" width="880" height="185" xmlns="http://www.w3.org/2000/svg">
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
-        .terminal {
-          font-family: 'JetBrains Mono', 'Fira Code', 'Segoe UI', monospace;
-          background: linear-gradient(145deg, #13141c 0%, #1a1b26 60%, #1f2335 100%);
-          border: 1px solid rgba(122, 162, 247, 0.28);
-          border-radius: 14px;
-          color: #c0caf5;
+        * {
           box-sizing: border-box;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-          overflow: hidden;
-          position: relative;
+          margin: 0;
+          padding: 0;
         }
-        .top-bar {
-          background: rgba(22, 22, 30, 0.9);
-          padding: 10px 18px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          border-bottom: 1px solid rgba(122, 162, 247, 0.15);
-        }
-        .dots {
-          display: flex;
-          gap: 8px;
-        }
-        .dot {
-          width: 11px;
-          height: 11px;
-          border-radius: 50%;
-        }
-        .red { background: #f7768e; }
-        .yellow { background: #e0af68; }
-        .green { background: #9ece6a; }
-        .tab-title {
-          font-size: 12.5px;
-          color: #7aa2f7;
-          letter-spacing: 0.5px;
-        }
-        .status-pill {
-          font-size: 11px;
-          color: #9ece6a;
-          background: rgba(158, 206, 106, 0.12);
-          padding: 2px 10px;
-          border-radius: 99px;
-          border: 1px solid rgba(158, 206, 106, 0.3);
-        }
-        .content {
-          padding: 20px 26px;
+        .bento {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, sans-serif;
           display: grid;
-          grid-template-columns: 1.15fr 0.85fr;
-          gap: 24px;
+          grid-template-columns: 1.1fr 1fr 1fr;
+          gap: 14px;
+          padding: 4px;
+          height: 180px;
+          color: #c0caf5;
         }
-        .bio-line {
-          font-size: 13.5px;
-          line-height: 1.75;
-          margin-bottom: 6px;
-        }
-        .prompt {
-          color: #bb9af7;
-          font-weight: bold;
-          margin-right: 6px;
-        }
-        .tag {
-          background: rgba(122, 162, 247, 0.14);
-          color: #7dcfff;
-          padding: 2px 7px;
-          border-radius: 5px;
-          font-size: 12.5px;
-        }
-        .bars {
+        .card {
+          background: linear-gradient(160deg, #16161e 0%, #1a1b26 100%);
+          border: 1px solid rgba(122, 162, 247, 0.18);
+          border-radius: 14px;
+          padding: 18px 20px;
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          gap: 12px;
-        }
-        .bar-item {
-          font-size: 12px;
-        }
-        .bar-header {
-          display: flex;
           justify-content: space-between;
-          margin-bottom: 5px;
-          color: #a9b1d6;
-        }
-        .bar-bg {
-          width: 100%;
-          height: 7px;
-          background: #16161e;
-          border-radius: 99px;
+          position: relative;
           overflow: hidden;
-          border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .bar-fill {
-          height: 100%;
-          border-radius: 99px;
-          background: linear-gradient(90deg, #7aa2f7, #bb9af7, #7dcfff);
+        .card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #7aa2f7, #bb9af7, #38bdae, #7aa2f7);
           background-size: 200% 100%;
-          animation: shimmer 3s linear infinite;
+          animation: flow 5s linear infinite;
         }
-        @keyframes shimmer {
+        @keyframes flow {
           0% { background-position: 0% 50%; }
           100% { background-position: 200% 50%; }
         }
+        .label {
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 1.4px;
+          color: #565f89;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .status-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #9ece6a;
+          box-shadow: 0 0 10px #9ece6a;
+          animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 0.5; transform: scale(0.9); }
+          50% { opacity: 1; transform: scale(1.15); }
+        }
+        .main-title {
+          font-size: 22px;
+          font-weight: 700;
+          color: #ffffff;
+          letter-spacing: -0.3px;
+          margin-top: 4px;
+        }
+        .sub {
+          font-size: 13px;
+          color: #a9b1d6;
+          line-height: 1.45;
+        }
+        .pills {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-top: 6px;
+        }
+        .pill {
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 11.5px;
+          padding: 4px 9px;
+          border-radius: 6px;
+          background: rgba(122, 162, 247, 0.1);
+          border: 1px solid rgba(122, 162, 247, 0.2);
+          color: #7dcfff;
+        }
+        .pill.purple {
+          background: rgba(187, 154, 247, 0.1);
+          border-color: rgba(187, 154, 247, 0.2);
+          color: #bb9af7;
+        }
+        .pill.teal {
+          background: rgba(56, 189, 174, 0.1);
+          border-color: rgba(56, 189, 174, 0.2);
+          color: #73daca;
+        }
+        .footer-note {
+          font-size: 11.5px;
+          color: #7aa2f7;
+          font-family: monospace;
+        }
       </style>
 
-      <div class="terminal">
-        <div class="top-bar">
-          <div class="dots">
-            <div class="dot red"></div>
-            <div class="dot yellow"></div>
-            <div class="dot green"></div>
+      <div class="bento">
+        <div class="card">
+          <div class="label">
+            <span>Profile</span>
+            <span class="status-dot"></span>
           </div>
-          <div class="tab-title">nevar344@github:~/profile-overview</div>
-          <div class="status-pill">● SYSTEM ONLINE</div>
+          <div>
+            <div class="main-title">Nevar344</div>
+            <div class="sub">Software Engineering &amp; Data Analysis</div>
+          </div>
+          <div class="footer-note">● Learning Machine Learning</div>
         </div>
 
-        <div class="content">
-          <div>
-            <div class="bio-line"><span class="prompt">❯</span><b>Role:</b> Python Developer &amp; Data Explorer</div>
-            <div class="bio-line"><span class="prompt">❯</span><b>Core Stack:</b> <span class="tag">Python</span> <span class="tag">SQL</span> <span class="tag">PostgreSQL</span></div>
-            <div class="bio-line"><span class="prompt">❯</span><b>Data &amp; ML:</b> <span class="tag">NumPy</span> <span class="tag">Pandas</span> <span class="tag">Matplotlib</span></div>
-            <div class="bio-line"><span class="prompt">❯</span><b>Environment:</b> <span class="tag">Docker</span> <span class="tag">Git</span> <span class="tag">Linux</span></div>
+        <div class="card">
+          <div class="label">
+            <span>Backend &amp; Infra</span>
+            <span>01</span>
           </div>
+          <div class="pills">
+            <span class="pill">Python</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">SQL</span>
+            <span class="pill teal">Docker</span>
+            <span class="pill teal">Git</span>
+            <span class="pill teal">Linux</span>
+          </div>
+          <div class="footer-note">Containerized workflows</div>
+        </div>
 
-          <div class="bars">
-            <div class="bar-item">
-              <div class="bar-header"><span>Python &amp; SQL Backend</span><span>80%</span></div>
-              <div class="bar-bg"><div class="bar-fill" style="width: 80%;"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-header"><span>Docker &amp; Git Workflow</span><span>75%</span></div>
-              <div class="bar-bg"><div class="bar-fill" style="width: 75%;"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-header"><span>Data Science &amp; ML (Learning)</span><span>55%</span></div>
-              <div class="bar-bg"><div class="bar-fill" style="width: 55%;"></div></div>
-            </div>
+        <div class="card">
+          <div class="label">
+            <span>Data &amp; ML</span>
+            <span>02</span>
           </div>
+          <div class="pills">
+            <span class="pill purple">NumPy</span>
+            <span class="pill purple">Pandas</span>
+            <span class="pill purple">Matplotlib</span>
+          </div>
+          <div class="footer-note">Data processing &amp; plots</div>
         </div>
       </div>
     </div>
